@@ -1,0 +1,45 @@
+<!-- <h1>Api-emp works</h1> -->
+<input type="text" placeholder="Search by name" [(ngModel)]='filterText' class="search">
+
+<div class="container">
+    <!-- <h2>Employee Table</h2> -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>Age</th>
+          <th>DOB</th>
+          <th>Salary</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees | paginate: {itemsPerPage:5 , currentPage: p} | filterEmp:filterText | async  ">
+          <td appHighlight [age]="employee.age" >{{ employee.id }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.firstName }} {{ employee.lastName }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.email }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.contactNumber }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.age }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.dob }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.salary }}</td>
+          <td appHighlight [age]="employee.age">{{ employee.address }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+  </div>
+
+<div class="container">
+    <div class="timer-con">
+        <h2>Timer: {{ timerValueMin }}:{{timerValueSec}}</h2>
+        <!-- <button class="primary" (click)="startTimer()">Start</button>
+        <button (click)="pauseTimer()">Pause</button>
+        <button (click)="resumeTimer()">Resume</button>
+        <button (click)="resetTimer()">Reset</button> -->
+    </div>
+  </div>
+
